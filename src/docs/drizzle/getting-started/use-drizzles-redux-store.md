@@ -4,12 +4,11 @@ layout: docs.hbs
 ---
 # Use Drizzle's Redux Store
 
-Drizzle is flexible about its store. It can generate a store if your app doesn't currently use redux, live alongside your current store (potentially keeping all Ethereum concerns in one place), integrate its reducers and sagas with your currently existing store, or allow you to integrate your reducers and sagas with its store.
+For those times when you don't want to manage your own Redux store, drizzle has you covered. Simply pass your sagas, reducers and drizzleOptions to
+`generateStore` and drizzle will incorporate them in its own Redux Store.
 
-## Delegate Store management to Drizzle
 
-If you'd like to delegate your reducers and sagas to drizzle, pass them to `generateStore`.
-
+These two snippets show how a saga to retrieve Todos from a web service endpoint by delegating to drizzle.
 ```javascript
 // ./state.js
 
