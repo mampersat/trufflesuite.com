@@ -4,11 +4,15 @@ layout: docs.hbs
 ---
 # Use Drizzle's Redux Store
 
-For those times when you don't want to manage your own Redux store, drizzle has you covered. Simply pass your sagas, reducers and drizzleOptions to
+For those times when you don't want to manage your own Redux store, drizzle has
+you covered. You can pass your sagas, reducers and drizzleOptions to
 `generateStore` and drizzle will incorporate them in its own Redux Store.
 
 
-These two snippets show how a saga to retrieve Todos from a web service endpoint by delegating to drizzle.
+These two snippets show how use a saga to retrieve Todos from a web service endpoint by delegating to drizzle.
+
+For a example see the [Drizzle and Contract
+Events](/tutorials/drizzle-and-contract-events) tutorial.
 ```javascript
 // ./state.js
 
@@ -32,7 +36,6 @@ const todosReducer = (state = [], action) => {
 function *fetchTodos() {
   const todos = yield fetch('https://jsonplaceholder.typicode.com/todos')
                       .then(resp => response.json())
-                      .then(json => json)
   yield put({ type: TODOS_RECEIVED, todos })
 }
 
